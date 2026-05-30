@@ -5,7 +5,9 @@ import Services from './components/Services';
 import Portfolio from './components/Portfolio';
 import SmartERP from './components/SmartERP';
 import AISolutions from './components/AISolutions';
+import Process from './components/Process';
 import Stats from './components/Stats';
+import FAQ from './components/FAQ';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import About from './components/About';
@@ -104,7 +106,9 @@ function App() {
             <GithubShowcase />
             <SmartERP />
             <AISolutions />
+            <Process />
             <Stats />
+            <FAQ />
             <Contact />
             <ContactCTA />
           </main>

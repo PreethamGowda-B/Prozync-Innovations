@@ -12,7 +12,7 @@ const AISolutions = () => {
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '3rem' }}>
+        <div className="grid-4-col">
           {[
             { title: 'Neural Networks', icon: <Brain />, desc: 'Deep learning models for complex data analysis.' },
             { title: 'Workflow Automation', icon: <Cpu />, desc: 'Intelligent systems to automate repetitive tasks.' },
@@ -21,23 +21,24 @@ const AISolutions = () => {
           ].map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              whileHover={{ y: -8, scale: 1.02 }}
               className="glass"
               style={{
-                padding: '3rem',
+                padding: '3rem 2rem',
                 textAlign: 'center',
                 border: '1px solid var(--accent-cyan)',
-                background: 'linear-gradient(180deg, rgba(80, 227, 194, 0.05) 0%, transparent 100%)'
+                background: 'linear-gradient(180deg, rgba(0, 242, 254, 0.05) 0%, transparent 100%)'
               }}
             >
               <div style={{ color: 'var(--accent-cyan)', marginBottom: '1.5rem' }}>
                 {React.cloneElement(item.icon, { size: 48 })}
               </div>
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>{item.title}</h3>
-              <p style={{ color: 'var(--muted-text)' }}>{item.desc}</p>
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem', fontWeight: '700' }}>{item.title}</h3>
+              <p style={{ color: 'var(--muted-text)', fontSize: '0.95rem', lineHeight: '1.6' }}>{item.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -55,11 +56,11 @@ const AISolutions = () => {
         opacity: 0.1,
         pointerEvents: 'none'
       }}>
-        {/* Placeholder for Canvas Neural Network */}
-        <div style={{ width: '100%', height: '100%', border: '1px dashed var(--accent-cyan)', borderRadius: '50%', opacity: 0.2 }} />
+        <div style={{ width: '100%', height: '100%', border: '1px dashed var(--accent-cyan)', borderRadius: '50%', opacity: 0.15 }} />
       </div>
     </section>
   );
 };
 
 export default AISolutions;
+

@@ -1,18 +1,20 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Code } from 'lucide-react';
+import smarterpPreview from '../assets/smarterp_preview.png';
+import timetablePreview from '../assets/timetable_preview.png';
 
 const projects = [
   {
     title: 'SmartERP Enterprise',
     category: 'Enterprise SaaS Platform',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    image: smarterpPreview,
     tags: ['SaaS', 'ERP', 'Automation', 'Cloud']
   },
   {
     title: 'Master Time Table Portal',
     category: 'Educational Automation',
-    image: 'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=800&q=80',
+    image: timetablePreview,
     tags: ['Intelligent Scheduling', 'Automation', 'Admin Controls']
   }
 ];
@@ -31,7 +33,7 @@ const Portfolio = () => {
   return (
     <section id="work" className="section-padding">
       <div className="container">
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '4rem', flexWrap: 'wrap', gap: '1.5rem' }} className="portfolio-header">
           <div>
             <h2 className="premium-title" style={{ fontSize: '3.5rem' }}>
               Featured <span className="text-gradient">Projects</span>
@@ -43,7 +45,7 @@ const Portfolio = () => {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', 
           gap: '3rem' 
         }}>
           {projects.map((project, index) => (
@@ -66,13 +68,13 @@ const Portfolio = () => {
             >
               <div style={{
                 width: '100%',
-                height: '400px',
+                height: '380px',
                 borderRadius: '30px',
                 overflow: 'hidden',
                 position: 'relative'
               }}>
                 <motion.img
-                  whileHover={{ scale: 1.1 }}
+                  whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.6 }}
                   src={project.image}
                   alt={project.title}
@@ -84,7 +86,7 @@ const Portfolio = () => {
                   left: 0,
                   width: '100%',
                   height: '100%',
-                  background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.8))',
+                  background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.85))',
                   display: 'flex',
                   flexDirection: 'column',
                   justifyContent: 'flex-end',
@@ -92,13 +94,15 @@ const Portfolio = () => {
                   opacity: 0,
                   transition: 'opacity 0.3s ease'
                 }} className="card-overlay">
-                  <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+                  <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
                     {project.tags.map(tag => (
                       <span key={tag} style={{ 
                         fontSize: '0.7rem', 
                         padding: '0.3rem 0.8rem', 
                         background: 'var(--accent-blue)', 
-                        borderRadius: '20px' 
+                        borderRadius: '20px',
+                        color: '#fff',
+                        fontWeight: '700'
                       }}>{tag}</span>
                     ))}
                   </div>
