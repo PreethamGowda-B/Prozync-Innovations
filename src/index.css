@@ -434,6 +434,11 @@ body::after {
   transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
+/* Mobile Menu Defaults (Hidden on Desktop) */
+.mobile-drawer, .mobile-drawer-overlay {
+  display: none;
+}
+
 /* Media Queries Breakpoints */
 @media (max-width: 1200px) {
   .grid-2-col {
@@ -520,6 +525,7 @@ body::after {
   }
   
   .mobile-drawer-overlay {
+    display: block;
     position: fixed;
     top: 0;
     left: 0;
