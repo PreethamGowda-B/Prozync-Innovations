@@ -3,18 +3,28 @@ import { motion } from 'framer-motion';
 import { ExternalLink, Code } from 'lucide-react';
 import smarterpPreview from '../assets/smarterp_preview.png';
 import timetablePreview from '../assets/timetable_preview.png';
+import honeyPreview from '../assets/honey_preview.png';
 
 const projects = [
   {
     title: 'SmartERP Enterprise',
     category: 'Enterprise SaaS Platform',
     image: smarterpPreview,
+    link: 'https://prozync.in',
     tags: ['SaaS', 'ERP', 'Automation', 'Cloud']
+  },
+  {
+    title: 'Kamadhenu Honey Farms',
+    category: 'Honey E-Commerce Platform',
+    image: honeyPreview,
+    link: 'https://kamadhenufarms.vercel.app',
+    tags: ['E-Commerce', 'Organic Produce', 'Tailwind', 'Vercel']
   },
   {
     title: 'Master Time Table Portal',
     category: 'Educational Automation',
     image: timetablePreview,
+    link: '#',
     tags: ['Intelligent Scheduling', 'Automation', 'Admin Controls']
   }
 ];
@@ -45,7 +55,7 @@ const Portfolio = () => {
 
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 380px), 1fr))', 
           gap: '3rem' 
         }}>
           {projects.map((project, index) => (
@@ -58,7 +68,6 @@ const Portfolio = () => {
               className="portfolio-card"
               style={{ 
                 position: 'relative', 
-                cursor: 'pointer',
                 background: isLight ? '#fff' : 'transparent',
                 borderRadius: '30px',
                 padding: isLight ? '1rem' : '0',
@@ -80,20 +89,27 @@ const Portfolio = () => {
                   alt={project.title}
                   style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
-                <div style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.85))',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  justifyContent: 'flex-end',
-                  padding: '2.5rem',
-                  opacity: 0,
-                  transition: 'opacity 0.3s ease'
-                }} className="card-overlay">
+                <a 
+                  href={project.link} 
+                  target={project.link !== '#' ? "_blank" : undefined}
+                  rel="noopener noreferrer"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    background: 'linear-gradient(to bottom, transparent, rgba(0,0,0,0.85))',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'flex-end',
+                    padding: '2.5rem',
+                    opacity: 0,
+                    transition: 'opacity 0.3s ease',
+                    textDecoration: 'none'
+                  }} 
+                  className="card-overlay"
+                >
                   <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
                     {project.tags.map(tag => (
                       <span key={tag} style={{ 
@@ -106,17 +122,19 @@ const Portfolio = () => {
                       }}>{tag}</span>
                     ))}
                   </div>
-                </div>
+                </a>
               </div>
               
               <div style={{ marginTop: '1.5rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
-                  <h3 style={{ fontSize: '1.8rem', fontWeight: '700' }}>{project.title}</h3>
-                  <p style={{ color: 'var(--muted-text)', marginTop: '0.3rem' }}>{project.category}</p>
+                  <h3 style={{ fontSize: '1.6rem', fontWeight: '700' }}>{project.title}</h3>
+                  <p style={{ color: 'var(--muted-text)', marginTop: '0.3rem', fontSize: '0.95rem' }}>{project.category}</p>
                 </div>
                 <div style={{ display: 'flex', gap: '1rem' }}>
-                  <motion.div whileHover={{ scale: 1.2 }} style={{ color: 'var(--text-color)' }}><ExternalLink size={20} /></motion.div>
-                  <motion.div whileHover={{ scale: 1.2 }} style={{ color: 'var(--text-color)' }}><Code size={20} /></motion.div>
+                  <a href={project.link} target={project.link !== '#' ? "_blank" : undefined} rel="noopener noreferrer" style={{ color: 'inherit' }}>
+                    <motion.div whileHover={{ scale: 1.2 }} style={{ color: 'var(--text-color)' }}><ExternalLink size={20} /></motion.div>
+                  </a>
+                  <motion.div whileHover={{ scale: 1.2 }} style={{ color: 'var(--text-color)', cursor: 'pointer' }}><Code size={20} /></motion.div>
                 </div>
               </div>
             </motion.div>
