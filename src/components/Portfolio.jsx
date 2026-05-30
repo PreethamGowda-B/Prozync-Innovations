@@ -17,7 +17,7 @@ const projects = [
     title: 'Kamadhenu Honey Farms',
     category: 'Honey E-Commerce Platform',
     image: honeyPreview,
-    link: 'https://kamadhenufarms.vercel.app',
+    link: 'https://kamadhenu-farms.vercel.app',
     tags: ['E-Commerce', 'Organic Produce', 'Tailwind', 'Vercel']
   },
   {
